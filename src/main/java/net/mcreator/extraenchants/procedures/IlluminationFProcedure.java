@@ -99,51 +99,51 @@ public class IlluminationFProcedure extends ExtraenchantsModElements.ModElement 
 					}
 				}.checkGamemode(entity))) {
 					if ((entity.isSneaking())) {
-						world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.SOUL_TORCH.getDefaultState(), 3);
+						if (((entity instanceof PlayerEntity)
+								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.SOUL_TORCH, (int) (1)))
+								: false)) {
+							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.SOUL_TORCH.getDefaultState(), 3);
+							if (entity instanceof PlayerEntity) {
+								ItemStack _stktoremove = new ItemStack(Blocks.SOUL_TORCH, (int) (1));
+								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
+										((PlayerEntity) entity).container.func_234641_j_());
+							}
+						} else if (((entity instanceof PlayerEntity)
+								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.TORCH, (int) (1)))
+								: false)) {
+							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.TORCH.getDefaultState(), 3);
+							if (entity instanceof PlayerEntity) {
+								ItemStack _stktoremove = new ItemStack(Blocks.TORCH, (int) (1));
+								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
+										((PlayerEntity) entity).container.func_234641_j_());
+							}
+						}
 					} else {
-						world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.TORCH.getDefaultState(), 3);
+						if (((entity instanceof PlayerEntity)
+								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.TORCH, (int) (1)))
+								: false)) {
+							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.TORCH.getDefaultState(), 3);
+							if (entity instanceof PlayerEntity) {
+								ItemStack _stktoremove = new ItemStack(Blocks.TORCH, (int) (1));
+								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
+										((PlayerEntity) entity).container.func_234641_j_());
+							}
+						} else if (((entity instanceof PlayerEntity)
+								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.SOUL_TORCH, (int) (1)))
+								: false)) {
+							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.SOUL_TORCH.getDefaultState(), 3);
+							if (entity instanceof PlayerEntity) {
+								ItemStack _stktoremove = new ItemStack(Blocks.SOUL_TORCH, (int) (1));
+								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
+										((PlayerEntity) entity).container.func_234641_j_());
+							}
+						}
 					}
 				} else {
 					if ((entity.isSneaking())) {
-						if (((entity instanceof PlayerEntity)
-								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.SOUL_TORCH, (int) (1)))
-								: false)) {
-							if (entity instanceof PlayerEntity) {
-								ItemStack _stktoremove = new ItemStack(Blocks.SOUL_TORCH, (int) (1));
-								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
-										((PlayerEntity) entity).container.func_234641_j_());
-							}
-							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.SOUL_TORCH.getDefaultState(), 3);
-						} else if (((entity instanceof PlayerEntity)
-								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.TORCH, (int) (1)))
-								: false)) {
-							if (entity instanceof PlayerEntity) {
-								ItemStack _stktoremove = new ItemStack(Blocks.TORCH, (int) (1));
-								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
-										((PlayerEntity) entity).container.func_234641_j_());
-							}
-							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.TORCH.getDefaultState(), 3);
-						}
+						world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.SOUL_TORCH.getDefaultState(), 3);
 					} else {
-						if (((entity instanceof PlayerEntity)
-								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.TORCH, (int) (1)))
-								: false)) {
-							if (entity instanceof PlayerEntity) {
-								ItemStack _stktoremove = new ItemStack(Blocks.TORCH, (int) (1));
-								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
-										((PlayerEntity) entity).container.func_234641_j_());
-							}
-							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.TORCH.getDefaultState(), 3);
-						} else if (((entity instanceof PlayerEntity)
-								? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Blocks.SOUL_TORCH, (int) (1)))
-								: false)) {
-							if (entity instanceof PlayerEntity) {
-								ItemStack _stktoremove = new ItemStack(Blocks.SOUL_TORCH, (int) (1));
-								((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
-										((PlayerEntity) entity).container.func_234641_j_());
-							}
-							world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.SOUL_TORCH.getDefaultState(), 3);
-						}
+						world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.TORCH.getDefaultState(), 3);
 					}
 				}
 			}
