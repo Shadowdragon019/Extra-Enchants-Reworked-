@@ -3,7 +3,7 @@
   "_type": "enchantment",
   "definition": {
     "name": "Poison Resistence",
-    "type": "ARMOR_HEAD",
+    "type": "ARMOR_CHEST",
     "rarity": "RARE",
     "minLevel": 1,
     "maxLevel": 3,

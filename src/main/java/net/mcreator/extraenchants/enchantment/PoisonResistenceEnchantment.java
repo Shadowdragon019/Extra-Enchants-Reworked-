@@ -23,7 +23,7 @@ public class PoisonResistenceEnchantment extends ExtraenchantsModElements.ModEle
 	}
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
-			super(Enchantment.Rarity.RARE, EnchantmentType.ARMOR_HEAD, slots);
+			super(Enchantment.Rarity.RARE, EnchantmentType.ARMOR_CHEST, slots);
 		}
 
 		@Override

@@ -1,16 +1,10 @@
 package net.mcreator.extraenchants.procedures;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.Util;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.potion.Effects;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.item.ItemStack;
@@ -40,13 +34,7 @@ public class VitalityFProcedure extends ExtraenchantsModElements.ModElement {
 				ExtraenchantsMod.LOGGER.warn("Failed to load dependency entity for procedure VitalityF!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				ExtraenchantsMod.LOGGER.warn("Failed to load dependency world for procedure VitalityF!");
-			return;
-		}
 		Entity entity = (Entity) dependencies.get("entity");
-		IWorld world = (IWorld) dependencies.get("world");
 		double vitalityNum = 0;
 		if (((((EnchantmentHelper.getEnchantmentLevel(VitalityEnchantment.enchantment,
 				((entity instanceof LivingEntity)
@@ -159,28 +147,6 @@ public class VitalityFProcedure extends ExtraenchantsModElements.ModElement {
 			if (entity instanceof LivingEntity) {
 				((LivingEntity) entity).removePotionEffect(Effects.HEALTH_BOOST);
 			}
-		}
-		if (!world.isRemote()) {
-			MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-			if (mcserv != null)
-				mcserv.getPlayerList().func_232641_a_(new StringTextComponent((("Vitality: ") + "" + ((vitalityNum)))), ChatType.SYSTEM,
-						Util.DUMMY_UUID);
-		}
-		if (!world.isRemote()) {
-			MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-			if (mcserv != null)
-				mcserv.getPlayerList().func_232641_a_(new StringTextComponent((("Health Boost: ") + "" + ((new Object() {
-					int check(Entity _entity) {
-						if (_entity instanceof LivingEntity) {
-							Collection<EffectInstance> effects = ((LivingEntity) _entity).getActivePotionEffects();
-							for (EffectInstance effect : effects) {
-								if (effect.getPotion() == Effects.HEALTH_BOOST)
-									return effect.getAmplifier();
-							}
-						}
-						return 0;
-					}
-				}.check(entity))))), ChatType.SYSTEM, Util.DUMMY_UUID);
 		}
 	}
 
