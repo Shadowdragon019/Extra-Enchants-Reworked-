@@ -1,0 +1,36 @@
+{
+  "_fv": 15,
+  "_type": "enchantment",
+  "definition": {
+    "name": "Immense Chest Hatred",
+    "type": "BREAKABLE",
+    "rarity": "VERY_RARE",
+    "minLevel": 1,
+    "maxLevel": 1,
+    "damageModifier": 0,
+    "compatibleEnchantments": [],
+    "compatibleItems": [
+      {
+        "value": "Items.WOODEN_AXE"
+      },
+      {
+        "value": "Items.STONE_AXE"
+      },
+      {
+        "value": "Items.IRON_AXE"
+      },
+      {
+        "value": "Items.GOLDEN_AXE"
+      },
+      {
+        "value": "Items.DIAMOND_AXE"
+      },
+      {
+        "value": "Items.NETHERITE_AXE"
+      }
+    ],
+    "isTreasureEnchantment": true,
+    "isCurse": true,
+    "isAllowedOnBooks": true
+  }
+}
